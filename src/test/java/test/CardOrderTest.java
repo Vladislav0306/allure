@@ -1,10 +1,6 @@
 package test;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
 import data.DataGenerator;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
@@ -16,22 +12,11 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 import static java.time.Duration.ofSeconds;
 
-
 public class CardOrderTest {
 
     String name = DataGenerator.makeName();
     String phone = DataGenerator.makePhone();
     String city = DataGenerator.makeCity();
-
-    @BeforeAll
-    static void setUpAll() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-    }
-
-    @AfterAll
-    static void tearDownAll() {
-        SelenideLogger.removeListener("allure");
-    }
 
     public static void clickButton() {
         $("[data-test-id=agreement]").click();
